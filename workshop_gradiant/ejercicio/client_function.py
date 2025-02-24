@@ -89,7 +89,6 @@ class ClientFunctions:
         console.print("[blue]1.[/blue] See all packets")
         console.print("[blue]2.[/blue] Decrypt a packet")
         console.print("[blue]3.[/blue] Break Caesar Cipher")
-        console.print("[blue]4.[/blue] Break TLS version 1 cipher")
         console.print("[blue]5.[/blue] Quit")
         console.print("[cyan]Choose an option: [/cyan]", end="")
     

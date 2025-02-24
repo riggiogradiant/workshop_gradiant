@@ -82,8 +82,7 @@ class Cliente:
             console.print("[blue]1.[/blue] See all packets")
             console.print("[blue]2.[/blue] Decrypt a packet")
             console.print("[blue]3.[/blue] Break Caesar Cipher")
-            console.print("[blue]4.[/blue] Break TLS version 1 cipher")
-            console.print("[blue]5.[/blue] Quit")
+            console.print("[blue]4.[/blue] Quit")
 
             choice = Prompt.ask("[cyan]Choose an option[/cyan]")
 
@@ -95,8 +94,6 @@ class Cliente:
             elif choice == "3":
                 self.functions.break_caesar_cipher(self.received_packets)
             elif choice == "4":
-                self.timing_attack()
-            elif choice == "5":
                 console.print("[red]Exiting the client.[/red]")
                 self.running = False
                 break

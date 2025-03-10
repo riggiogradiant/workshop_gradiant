@@ -102,33 +102,3 @@ class ServerFunctions:
         padded_data = padder.update(text.encode()) + padder.finalize()
         return encryptor.update(padded_data) + encryptor.finalize()
     
-    def tls_vulnerable_decrypt(self, ciphertext, secret_plaintext):
-        """
-        Simulate a vulnerable TLS 1.0 decryption process with timing leaks.
-        """
-        start_time = time.time()  # Track time for debugging
-        for i in range(len(ciphertext)):
-            # Simulate processing time for a correct byte match
-            if i >= len(secret_plaintext) or ciphertext[i] != secret_plaintext[i]:
-                time.sleep(0.01)  # Short delay for incorrect guess
-                console.print(f"[yellow]Decryption failed at byte {i+1}[/yellow]")
-                return False  # Decryption failed
-            time.sleep(0.05)  # Longer delay for correct guess
-
-        elapsed_time = time.time() - start_time
-        console.print(f"[green]Decryption successful! Time: {elapsed_time:.4f} seconds[/green]")
-        return True  # Decryption successful
-
-    def handle_timing_attack(self, conn, data):
-        secret_plaintext = "HE"
-        ciphertext = data.get("data")
-        response = {}
-        if ciphertext == secret_plaintext[0] or ciphertext == secret_plaintext[1]:
-            response = {"status": "Decryption complete"}
-            console.print("[green]Decryption complete[/green]")
-            time.sleep(0.05)
-        else:
-            response = {"status": "Decryption failed"}
-            console.print("[red]Decryption failed[/red]")
-            time.sleep(0.005)
-        conn.sendall(json.dumps(response).encode() + b"\n")

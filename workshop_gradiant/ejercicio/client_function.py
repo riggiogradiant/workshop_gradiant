@@ -172,40 +172,5 @@ class ClientFunctions:
             table.add_row(str(i), method, data_preview)
 
         console.print(table)
-    # def break_caesar_cipher(self):
-    #     messages = [
-    #         "HELLO FROM SERVER",
-    #         "FORO TECNOLÓGICO XXV",
-    #         "WORKSHOP GRADIANT",
-    #         "CELTA DE VIGO",
-    #     ]
 
-    #     if not self.received_packets:
-    #         console.print("[red]No packets available to break Caesar cipher![/red]")
-    #         return
-
-    #     # Prompt user to select a packet
-    #     for i, packet in enumerate(self.received_packets, start=1):
-    #         console.print(f"[cyan]{i}. Method: {packet['method']}, Data: {packet['data']}[/cyan]")
-    #     choice = Prompt.ask("Choose a packet to break", choices=[str(i) for i in range(1, len(self.received_packets) + 1)], default="1")
-    #     packet = self.received_packets[int(choice) - 1]
-
-    #     if packet["method"] != "Caesar":
-    #         console.print("[red]Selected packet is not encrypted with Caesar cipher![/red]")
-    #         return
-
-    #     ciphertext = packet["data"]
-    #     console.print(f"\n[bold blue]Breaking Caesar Cipher for the packet data: {ciphertext}[/bold blue]\n")
-
-    #     # Brute force all possible shifts
-    #     for shift in range(95):  # 95 ASCII printable characters
-    #         plaintext = self.functions.caesar_decrypt(ciphertext, shift)
-
-    #         # Check if plaintext is in the list of known messages
-    #         if plaintext.upper() in messages:  # Convert both to uppercase for case-insensitive comparison
-    #             console.print(f"[bold magenta]Shift {shift}: {plaintext} (MATCH FOUND!)[/bold magenta]")
-    #         else:
-    #             console.print(f"[green]Shift {shift}: {plaintext}[/green]")
-
-    #     console.print("[bold magenta]All possible shifts have been tried. Observe why Caesar cipher is insecure![/bold magenta]")
     

@@ -119,40 +119,6 @@ class ServerFunctions:
         console.print(f"[green]Decryption successful! Time: {elapsed_time:.4f} seconds[/green]")
         return True  # Decryption successful
 
-
-    # def handle_timing_attack(self, conn, data):
-    #     """
-    #     Handle client requests to perform a timing attack simulation.
-    #     """
-    #     try:
-    #         console.print("[cyan]Received timing attack request.[/cyan]")
-    #         ciphertext = data.get("data")
-    #         if not ciphertext:
-    #             error_message = {"error": "No ciphertext provided"}
-    #             console.print(f"[red]{error_message['error']}[/red]")
-    #             conn.sendall(json.dumps(error_message).encode() + b"\n")
-    #             return
-
-    #         secret_plaintext = "HELLO WORLD!"  # Secret plaintext for simulation
-    #         console.print(f"[cyan]Starting decryption attempt for ciphertext: {ciphertext}[/cyan]")
-            
-    #         success = self.tls_vulnerable_decrypt(ciphertext, secret_plaintext)
-
-    #         response = {}
-    #         if success:
-    #             response = {"status": "Decryption complete"}
-    #             console.print("[green]Decryption complete[/green]")
-    #         else:
-    #             response = {"status": "Decryption failed"}
-    #             console.print("[red]Decryption failed[/red]")
-
-    #         console.print(f"[cyan]Sending response: {response}[/cyan]")
-    #         conn.sendall(json.dumps(response).encode() + b"\n")
-        
-    #     except Exception as e:
-    #         error_message = f"Error during timing attack simulation: {e}"
-    #         console.print(f"[red]{error_message}[/red]")
-    #         conn.sendall(json.dumps({"error": error_message}).encode() + b"\n")
     def handle_timing_attack(self, conn, data):
         secret_plaintext = "HE"
         ciphertext = data.get("data")
